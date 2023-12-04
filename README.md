@@ -12,6 +12,8 @@ npm i
 
 npm install react-router-dom
 
+npm i uuid
+
 # Tailwind + Daisyui
 
 npm install -D tailwindcss postcss autoprefixer
