@@ -1,10 +1,13 @@
 import BlogForm from "../components/BlogForm";
+import { AppFetchProvider } from "../context/AppFetchProvider";
 
 const Admin = () => {
   return (
-    <section>
-      <BlogForm />
-    </section>
+    <AppFetchProvider>
+      <section>
+        <BlogForm />
+      </section>
+    </AppFetchProvider>
   );
 };
 
