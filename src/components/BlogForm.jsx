@@ -36,26 +36,26 @@ const BlogForm = () => {
 
     formData.append("favorite", false);
 
-    console.log(formData);
     fetch("http://localhost:9992/api/articles", {
       method: "POST",
       body: formData,
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Server response:", data);
-        if (data.path) {
-          console.log("File path:", data.path);
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      setRefresh((prev) => !prev);
+      event.target.reset();
+      return response.json();
+    });
+    //   .then((data) => {
+    //     console.log("Server response:", data);
+    //     if (data.path) {
+    //       console.log("File path:", data.path);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
   };
 
   return (
