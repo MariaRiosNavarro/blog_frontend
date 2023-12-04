@@ -1,14 +1,14 @@
-import BlogItem from "../components/BlogItem";
+import { useEffect } from "react";
+import BlogDetailItem from "../components/BlogDetailItem";
 import { useParams } from "react-router-dom";
+import { AppFetchProvider } from "../context/AppFetchProvider";
 
 const BlogDetail = () => {
-  const { id } = useParams();
-
   return (
-    <>
+    <AppFetchProvider>
       <h2>BlogDetail</h2>
-      <BlogItem />
-    </>
+      <BlogDetailItem />
+    </AppFetchProvider>
   );
 };
 

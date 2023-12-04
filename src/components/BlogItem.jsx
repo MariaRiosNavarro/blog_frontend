@@ -5,20 +5,21 @@ const BlogItem = ({ article }) => {
   return (
     <article className="flex flex-col">
       <div>
-        <img
+        {/* <img
           className="max-w-[100%]"
           src={"http://localhost:9992/" + article.link}
           alt={article.title}
-        />
+        /> */}
       </div>
       <h2>{article.title}</h2>
       <p className="line-clamp-5">{article.description}</p>
+      <p>{article.id}</p>
       <div>
         {article.tags.map((tag) => (
           <span key={uuidv4()}>{tag}</span>
         ))}
       </div>
-      <Link to={`/detail/${article.id}`}>
+      <Link to={`/blog/${article.id}`}>
         <button className="btn">READ MORE</button>
       </Link>
     </article>

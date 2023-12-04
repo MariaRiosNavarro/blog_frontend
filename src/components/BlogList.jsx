@@ -1,7 +1,8 @@
 import BlogItem from "./BlogItem";
-import blogs from "../db/blogs";
+import { useFetchContext } from "../context/AppFetchProvider";
 
 const BlogList = () => {
+  const { blogs, setBlogs } = useFetchContext();
   return (
     <main>
       <h2>BlogList</h2>
