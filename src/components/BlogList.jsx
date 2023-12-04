@@ -1,6 +1,7 @@
-import BlogItem from "./BlogDetailItem";
+import BlogItem from "./BlogItem";
+import blogs from "../db/blogs";
 
-const BlogList = ({ blogs }) => {
+const BlogList = () => {
   return (
     <main>
       <h2>BlogList</h2>

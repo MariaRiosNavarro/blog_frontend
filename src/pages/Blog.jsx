@@ -4,7 +4,7 @@ const Blog = () => {
   return (
     <>
       <h2>Blog</h2>
-      <BlogList blogs={blogs} />
+      <BlogList />
     </>
   );
 };

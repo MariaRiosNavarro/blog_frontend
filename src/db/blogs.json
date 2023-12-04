@@ -1,0 +1,82 @@
+[
+  {
+    "id": "123",
+    "title": "Example Title 1",
+    "description": "Example Description 1",
+    "link": "example_link_1.jpg",
+    "tags": ["tag1", "tag2", "tag3"],
+    "favorite": true
+  },
+  {
+    "id": "456",
+    "title": "Example Title 2",
+    "description": "Example Description 2",
+    "link": "example_link_2.jpg",
+    "tags": ["tag4", "tag5"],
+    "favorite": false
+  },
+  {
+    "id": "789",
+    "title": "Example Title 3",
+    "description": "Example Description 3",
+    "link": "example_link_3.jpg",
+    "tags": ["tag1", "tag3"],
+    "favorite": true
+  },
+  {
+    "id": "012",
+    "title": "Example Title 4",
+    "description": "Example Description 4",
+    "link": "example_link_4.jpg",
+    "tags": ["tag2", "tag4"],
+    "favorite": false
+  },
+  {
+    "id": "345",
+    "title": "Example Title 5",
+    "description": "Example Description 5",
+    "link": "example_link_5.jpg",
+    "tags": ["tag1", "tag5"],
+    "favorite": true
+  },
+  {
+    "id": "678",
+    "title": "Example Title 6",
+    "description": "Example Description 6",
+    "link": "example_link_6.jpg",
+    "tags": ["tag2", "tag3"],
+    "favorite": false
+  },
+  {
+    "id": "901",
+    "title": "Example Title 7",
+    "description": "Example Description 7",
+    "link": "example_link_7.jpg",
+    "tags": ["tag4", "tag5"],
+    "favorite": true
+  },
+  {
+    "id": "234",
+    "title": "Example Title 8",
+    "description": "Example Description 8",
+    "link": "example_link_8.jpg",
+    "tags": ["tag1", "tag2", "tag3"],
+    "favorite": false
+  },
+  {
+    "id": "567",
+    "title": "Example Title 9",
+    "description": "Example Description 9",
+    "link": "example_link_9.jpg",
+    "tags": ["tag4"],
+    "favorite": true
+  },
+  {
+    "id": "890",
+    "title": "Example Title 10",
+    "description": "Example Description 10",
+    "link": "example_link_10.jpg",
+    "tags": ["tag5"],
+    "favorite": false
+  }
+]

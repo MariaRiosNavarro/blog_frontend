@@ -2,9 +2,7 @@ import { useRef } from "react";
 
 function App() {
   const passwordref = useRef();
-
   //FETCH eingebaut dass zu unseren Server geht
-
   const handleLogin = () => {
     //   fetch("http://localhost:9992/api/auth", {
     //     method: "POST",
