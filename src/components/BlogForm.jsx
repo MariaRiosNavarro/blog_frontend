@@ -30,7 +30,7 @@ const BlogForm = () => {
     checkboxes.forEach((checkbox) => {
       formData.append(
         "tags",
-        checkbox.current.checked ? checkbox.current.value : ""
+        checkbox.current.checked ? checkbox.current.value : "" //eventuell hier lieber null
       );
     });
 
