@@ -26,7 +26,6 @@ const BlogForm = () => {
     formData.append("description", event.target.description.value);
     formData.append("link", event.target.link.files[0]);
 
-    // Filtrar checkbox
     checkboxes.forEach((checkbox) => {
       formData.append(
         "tags",
@@ -47,15 +46,6 @@ const BlogForm = () => {
       event.target.reset();
       return response.json();
     });
-    //   .then((data) => {
-    //     console.log("Server response:", data);
-    //     if (data.path) {
-    //       console.log("File path:", data.path);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
   };
 
   return (
