@@ -38,7 +38,7 @@ export default {
 };
 ```
 
-- IN daisyui, themes, choose the themes you want, here as example I use "cupcake", "night" and "retro"
+- IN daisyui, themes, choose the themes you want, here as example I use "cupcake", "night" and "retro" (first ist for light mode default, second is for dark mode default)
 
 * IN index.css
 
