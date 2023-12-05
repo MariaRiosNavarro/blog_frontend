@@ -28,6 +28,9 @@ npm i -D daisyui@latest
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  daisyui: {
+    themes: ["cupcake", "night", "retro"],
+  },
   theme: {
     extend: {},
   },
@@ -35,7 +38,9 @@ export default {
 };
 ```
 
-- IN index.css
+- IN daisyui, themes, choose the themes you want, here as example I use "cupcake", "night" and "retro"
+
+* IN index.css
 
 ```css
 @tailwind base;
