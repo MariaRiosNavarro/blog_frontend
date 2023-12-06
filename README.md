@@ -11,31 +11,31 @@ Comming soon only 'PATCH', (Favorites Update, maybe the update of the badgets & 
 # Light & Dark
 
 <div>
-<img src="./public/readme1.png" width="300px">
-<img src="./public/readme2.png" width="300px">
-<img src="./public/readme4.png" width="300px">
+<img src="./public/readme1.png" width="450px">
+<img src="./public/readme2.png" width="450px">
+<img src="./public/readme4.png" width="450px">
 </div>
 
 # Add
 
 <div>
-<img src="./public/add.png" width="300px">
-<img src="./public/addd.png" width="300px">
-<img src="./public/add3.png" width="300px">
-<img src="./public/add4.png" width="300px">
+<img src="./public/add.png" width="450px">
+<img src="./public/addd.png" width="450px">
+<img src="./public/add3.png" width="450px">
+<img src="./public/add4.png" width="450px">
 
 </div>
 
 # Edit & Delete
 
 <div>
-<img src="./public/edit.png" width="300px">
+<img src="./public/edit.png" width="450px">
 
-<img src="./public/edit3.png" width="300px">
-<img src="./public/edit4.png" width="300px">
-<img src="./public/edit5.png" width="300px">
-<img src="./public/delete2.png" width="300px">
-<img src="./public/delete3.png" width="300px">
+<img src="./public/edit3.png" width="450px">
+<img src="./public/edit4.png" width="450px">
+<img src="./public/edit5.png" width="450px">
+<img src="./public/delete2.png" width="450px">
+<img src="./public/delete3.png" width="450px">
 
 </div>
 
