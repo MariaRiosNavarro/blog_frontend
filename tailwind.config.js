@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        parallax: 'url("../public/books.jpg")',
+        parallax: 'url("./public/green.jpg")',
+        parallaxDark: 'url("./public/greenDark.jpg")',
       },
     },
   },

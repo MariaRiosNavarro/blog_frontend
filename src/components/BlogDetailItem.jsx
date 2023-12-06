@@ -6,7 +6,8 @@ import { useFetchContext } from "../context/AppFetchProvider";
 
 const BlogDetailItem = () => {
   const [favorite, setFavorite] = useState(false);
-  const [message, setMessage] = useState(null);
+  const [messageDelete, setMessageDelete] = useState(null);
+  const [messageEdit, setMessageEdit] = useState(null);
   const [edit, setEdit] = useState(false);
   // const [favorite, setFavorite] = useState(false);
 
@@ -32,16 +33,25 @@ const BlogDetailItem = () => {
     setFavorite((prev) => !prev);
   };
 
-  const saveBlog = () => {
-    const form = new FormData();
-    form.append("id", id);
-    form.append("title", titleRef.current.innerText);
-    form.append("description", descriptionRef.current.innerText);
-
-    fetch("http://localhost:9992/api/articles", {
-      method: "PUT",
-      body: form,
-    });
+  const saveBlog = async () => {
+    try {
+      const form = new FormData();
+      form.append("id", id);
+      form.append("title", titleRef.current.innerText);
+      form.append("description", descriptionRef.current.innerText);
+      const response = await fetch("http://localhost:9992/api/articles", {
+        method: "PUT",
+        body: form,
+      });
+      const resJson = await response.json();
+      setEdit(false);
+      setMessageEdit(resJson.message);
+      setTimeout(() => {
+        setMessageEdit(null);
+      }, 2000);
+    } catch (error) {
+      console.error("Failed to delete article:", error.message);
+    }
   };
 
   const deleteBlog = async () => {
@@ -54,7 +64,7 @@ const BlogDetailItem = () => {
         body: JSON.stringify({ id }),
       });
       const resJson = await response.json();
-      setMessage(resJson.message);
+      setMessageDelete(resJson.message);
     } catch (error) {
       console.error("Failed to delete article:", error.message);
     }
@@ -67,17 +77,17 @@ const BlogDetailItem = () => {
 
   return (
     <div className="flex justify-center  w-screen h-screen">
-      {message ? (
+      {messageDelete ? (
         <div className="flex flex-col gap-8 items-center h-screen w-screen pt-8">
           <Link to="/blog" className="card-actions justify-start p-4">
             <button className="btn btn-accent">Back</button>
           </Link>
           <p className="px-8 py-4  rounded-xl  bg-success text-4xl">
-            {message}
+            {messageDelete}
           </p>
         </div>
       ) : (
-        <article className="card w-[95%] h-auto glass border-primary m-8">
+        <article className="card w-[95%] max-w-[700px] max-h-[60%] glass border-primary m-8">
           <Link to="/blog" className="card-actions justify-start p-4">
             <button className="btn btn-accent">Back</button>
           </Link>
@@ -89,12 +99,25 @@ const BlogDetailItem = () => {
             />
           </figure>
           <div className="card-body flex-grow-0 h-auto relative ">
-            <h2 ref={titleRef} contentEditable={edit} className="card-title">
+            <h2
+              ref={titleRef}
+              contentEditable={edit}
+              className={`card-title  py-2 px-1  rounded-sm ${
+                edit && "border border-red-400 w-[80%]"
+              }`}
+            >
               {article.title}
             </h2>
-            <p ref={descriptionRef} contentEditable={edit}>
+            <p
+              ref={descriptionRef}
+              contentEditable={edit}
+              className={`py-2 px-1  rounded-sm ${
+                edit && "border border-red-400 w-[80%]"
+              }`}
+            >
               {article.description}
             </p>
+
             <div>
               {article.tags.map((tag) => (
                 <span
@@ -126,6 +149,11 @@ const BlogDetailItem = () => {
                 Delete
               </button>
             </div>
+            {messageEdit && (
+              <p className="px-8 py-4  rounded-xl  bg-success text-4xl">
+                {messageEdit}
+              </p>
+            )}
           </div>
         </article>
       )}

@@ -26,10 +26,14 @@ const BlogItem = ({ article }) => {
       <div className="card-body text-gray-900 ">
         <h2 className="card-title">{article.title}</h2>
         <p className="line-clamp-5">{article.description}</p>
-        <p>{article.id}</p>
         <div>
           {article.tags.map((tag) => (
-            <span key={uuidv4()}>{tag}</span>
+            <span
+              className={tag ? "badge badge-secondary mr-2" : ""}
+              key={uuidv4()}
+            >
+              {tag}
+            </span>
           ))}
         </div>
         <Link to={`/blog/${article.id}`} className="card-actions justify-end">

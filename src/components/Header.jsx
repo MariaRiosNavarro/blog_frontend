@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const Header = () => {
-  //   use theme from local storage if available or set cupcake theme
+  //   use theme from local storage if available or set lemonade theme
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("lemonade") : "cupcake"
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "lemonade"
   );
 
   // update state on toggle
@@ -26,8 +26,8 @@ const Header = () => {
 
   return (
     <div>
-      <h1 className="text-center text-primary p-8 text-4xl font-bold rounded-xl mx-auto">
-        PROPS Blog with API
+      <h1 className="text-center text-primary p-8 text-4xl font-bold rounded-xl mx-auto line">
+        PROPS Blog <span className="block"> with API</span>
       </h1>
       <label className="swap swap-rotate absolute right-6 top-8">
         <input
