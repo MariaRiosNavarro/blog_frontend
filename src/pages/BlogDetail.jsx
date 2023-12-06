@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import BlogDetailItem from "../components/BlogDetailItem";
 import { useParams } from "react-router-dom";
 import { AppFetchProvider } from "../context/AppFetchProvider";
+import Header from "../components/Header";
 
 const BlogDetail = () => {
   return (
     <AppFetchProvider>
-      <h2>BlogDetail</h2>
+      <Header />
+
       <BlogDetailItem />
     </AppFetchProvider>
   );
