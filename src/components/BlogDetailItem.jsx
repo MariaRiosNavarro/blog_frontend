@@ -47,11 +47,13 @@ const BlogDetailItem = () => {
   return (
     <div className="flex justify-center  w-screen h-screen">
       {message ? (
-        <div>
+        <div className="flex flex-col gap-8 items-center h-screen w-screen pt-8">
           <Link to="/blog" className="card-actions justify-start p-4">
             <button className="btn btn-accent">Back</button>
           </Link>
-          <p className="bg-primary text-4xl">{message}</p>
+          <p className="px-8 py-4  rounded-xl  bg-success text-4xl">
+            {message}
+          </p>
         </div>
       ) : (
         <article className="card w-[95%] h-auto glass border-primary m-8">
@@ -65,7 +67,7 @@ const BlogDetailItem = () => {
               alt={article.title}
             />
           </figure>
-          <div className="card-body h-auto relative ">
+          <div className="card-body flex-grow-0 h-auto relative ">
             <h2 className="card-title">{article.title}</h2>
             <p>{article.description}</p>
             <div>
