@@ -1,12 +1,12 @@
-# React + Vite + Tailwind + Daisyui (responsive)
-
 # Blog with Api & Server
 
-[Server & Api are here] (https://github.com/MariaRiosNavarro/blog_backend)
+# React + Vite + Tailwind + Daisyui (responsive)
+
+# [Server & Api are here](https://github.com/MariaRiosNavarro/blog_backend)
 
 All CRUD basic operations of persistent storage works with the Server.
 
-Comming soon only 'PATCH', (Only Favorites Update and maybe the update of the badgets)
+Comming soon only 'PATCH', (Favorites Update, maybe the update of the badgets & update of images)
 
 # Light & Dark
 
