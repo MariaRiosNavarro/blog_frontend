@@ -7,7 +7,7 @@ const BlogItem = ({ article }) => {
   // console.log(link);
 
   return (
-    <article className="flex flex-col card w-96 glass border-primary border-4">
+    <article className="flex flex-col card w-96 glass border-primary border-4 min-h-[100%]">
       <figure className="h-[200px] overflow-hidden">
         <img
           className="w-[100%] object-cover"

@@ -6,8 +6,10 @@ import { useFetchContext } from "../context/AppFetchProvider";
 
 const BlogDetailItem = () => {
   const [favorite, setFavorite] = useState(false);
+  const [message, setMessage] = useState(null);
   // const [favorite, setFavorite] = useState(false);
-  const { blogs } = useFetchContext();
+
+  const { blogs, setRefresh } = useFetchContext();
   const { id } = useParams();
 
   const article = blogs.find((blog) => blog.id === id);
@@ -21,9 +23,20 @@ const BlogDetailItem = () => {
     setFavorite((prev) => !prev);
   };
 
-  const deleteBlog = () => {
-    let id = article.id;
-    console.log(id);
+  const deleteBlog = async () => {
+    try {
+      const response = await fetch("http://localhost:9992/api/articles", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+      });
+      const resJson = await response.json();
+      setMessage(resJson.message);
+    } catch (error) {
+      console.error("Failed to delete article:", error.message);
+    }
   };
 
   const editBlog = () => {
@@ -33,43 +46,55 @@ const BlogDetailItem = () => {
 
   return (
     <div className="flex justify-center  w-screen h-screen">
-      <article className="card w-[95%] glass border-primary m-8">
-        <Link to="/blog" className="card-actions justify-start p-4">
-          <button className="btn btn-accent">Back</button>
-        </Link>
-        <figure className="h-[300px] w-[100%] overflow-hidden">
-          <img
-            className="w-[100%] object-cover"
-            src={"http://localhost:9992/" + article.link}
-            alt={article.title}
-          />
-        </figure>
-        <div className="card-body relative ">
-          <h2 className="card-title">{article.title}</h2>
-          <p>{article.description}</p>
-          <div>
-            {article.tags.map((tag) => (
-              <span
-                className={tag ? "badge badge-secondary mr-2" : ""}
-                key={uuidv4()}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="absolute right-10 text-3xl" onClick={handleFavorite}>
-            {favorite ? "★" : "☆"}
-          </div>
-          <div className="mt-8 flex justify-center gap-8">
-            <button className="btn btn-primary" onClick={editBlog}>
-              Edit
-            </button>
-            <button className="btn btn-accent" onClick={deleteBlog}>
-              Delete
-            </button>
-          </div>
+      {message ? (
+        <div>
+          <Link to="/blog" className="card-actions justify-start p-4">
+            <button className="btn btn-accent">Back</button>
+          </Link>
+          <p className="bg-primary text-4xl">{message}</p>
         </div>
-      </article>
+      ) : (
+        <article className="card w-[95%] h-auto glass border-primary m-8">
+          <Link to="/blog" className="card-actions justify-start p-4">
+            <button className="btn btn-accent">Back</button>
+          </Link>
+          <figure className="h-[300px] w-[100%] overflow-hidden">
+            <img
+              className="w-[100%] object-cover"
+              src={"http://localhost:9992/" + article.link}
+              alt={article.title}
+            />
+          </figure>
+          <div className="card-body h-auto relative ">
+            <h2 className="card-title">{article.title}</h2>
+            <p>{article.description}</p>
+            <div>
+              {article.tags.map((tag) => (
+                <span
+                  className={tag ? "badge badge-secondary mr-2" : ""}
+                  key={uuidv4()}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div
+              className="absolute right-10 text-3xl"
+              onClick={handleFavorite}
+            >
+              {favorite ? "★" : "☆"}
+            </div>
+            <div className="mt-8 flex justify-center gap-8">
+              <button className="btn btn-primary" onClick={editBlog}>
+                Edit
+              </button>
+              <button className="btn btn-accent" onClick={deleteBlog}>
+                Delete
+              </button>
+            </div>
+          </div>
+        </article>
+      )}
     </div>
   );
 };
