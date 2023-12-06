@@ -9,8 +9,6 @@ const BlogDetailItem = () => {
   const { blogs } = useFetchContext();
   const { id } = useParams();
 
-  //filter result ist a array with one result, this one and only it is what we need
-
   const article = blogs.find((blog) => blog.id === id);
 
   console.log("TEST", article);
