@@ -23,7 +23,7 @@ const BlogItem = ({ article }) => {
         }}
       ></figure> */}
 
-      <div className="card-body text-gray-900 ">
+      <div className="card-body text-gray-100">
         <h2 className="card-title">{article.title}</h2>
         <p className="line-clamp-5">{article.description}</p>
         <div>
@@ -36,7 +36,10 @@ const BlogItem = ({ article }) => {
             </span>
           ))}
         </div>
-        <Link to={`/blog/${article.id}`} className="card-actions justify-end">
+        <Link
+          to={`/blog/${article.id}`}
+          className="card-actions justify-end mt-8"
+        >
           <button className="btn btn-accent">READ MORE</button>
         </Link>
       </div>

@@ -50,80 +50,129 @@ const BlogForm = () => {
 
   return (
     <>
-      <h2>New Post</h2>
-      <form
-        onSubmit={handleSubmit}
-        encType="multipart/form-data"
-        className="flex flex-col items-center p-4"
-      >
-        <label htmlFor="title">Title</label>
-        <input type="text" id="title" name="title" />
-        <label htmlFor="description">Text</label>
-        <input type="text" id="description" name="description" />
-        <div>
-          <label className="text-center" htmlFor="tags">
-            Tags
+      <div className="card">
+        <h2 className="card-title justify-center bg-success p-8 rounded-xl text-black">
+          Add your new Article:
+        </h2>
+        <form
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+          className="card-body  flex flex-col items-center  p-4"
+        >
+          <label
+            className="text-center text-primary font-extrabold p-4 text-xl"
+            htmlFor="title"
+          >
+            Title
           </label>
+          <input
+            className="px-4 py-2 border-4 border-success rounded-md"
+            type="text"
+            id="title"
+            name="title"
+          />
+          <label
+            className="text-center text-primary font-extrabold p-4 text-xl"
+            htmlFor="description"
+          >
+            Text
+          </label>
+          <textarea
+            className="px-4 py-2 border-4 border-success rounded-md "
+            type="text"
+            id="description"
+            name="description"
+          />
           <div className="flex flex-col items-center">
-            <input
-              className="toggle"
-              type="checkbox"
-              id="personal"
-              name="tags"
-              value="personal"
-              ref={personalRef}
-            />
-            <label htmlFor="personal">Personal</label>
+            <label
+              className="text-center text-primary font-extrabold p-4 text-xl"
+              htmlFor="tags"
+            >
+              Tags:
+            </label>
+            <div className="grid grid-cols-3 border-4 border-success rounded-xl m-4 p-4">
+              <div className="flex flex-col items-center">
+                <input
+                  className="toggle toggle-primary"
+                  type="checkbox"
+                  id="personal"
+                  name="tags"
+                  value="personal"
+                  ref={personalRef}
+                />
+                <label className="text-primary font-bold" htmlFor="personal">
+                  Personal
+                </label>
+              </div>
+              <div className="flex flex-col items-center">
+                <input
+                  className="toggle toggle-primary"
+                  type="checkbox"
+                  id="all"
+                  name="tags"
+                  value="all"
+                  ref={allRef}
+                />
+                <label className="text-primary font-bold" htmlFor="all">
+                  All
+                </label>
+              </div>
+              <div className="flex flex-col items-center">
+                <input
+                  className="toggle toggle-primary"
+                  type="checkbox"
+                  id="technologie"
+                  name="tags"
+                  value="technologie"
+                  ref={technologieRef}
+                />
+                <label className="text-primary font-bold" htmlFor="technologie">
+                  Technologie
+                </label>
+              </div>
+              <div className="flex flex-col items-center">
+                <input
+                  className="toggle toggle-primary"
+                  type="checkbox"
+                  id="art"
+                  name="tags"
+                  value="art"
+                  ref={artRef}
+                />
+                <label className="text-primary font-bold" htmlFor="art">
+                  Art
+                </label>
+              </div>
+              <div className="flex flex-col items-center">
+                <input
+                  className="toggle toggle-primary"
+                  type="checkbox"
+                  id="science"
+                  name="tags"
+                  value="science"
+                  ref={scienceRef}
+                />
+                <label className="text-primary font-bold" htmlFor="science">
+                  Science
+                </label>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <input
-              className="toggle"
-              type="checkbox"
-              id="all"
-              name="tags"
-              value="all"
-              ref={allRef}
-            />
-            <label htmlFor="all">All</label>
-          </div>
-          <div className="flex flex-col items-center">
-            <input
-              className="toggle"
-              type="checkbox"
-              id="technologie"
-              name="tags"
-              value="technologie"
-              ref={technologieRef}
-            />
-            <label htmlFor="technologie">Technologie</label>
-          </div>
-          <div className="flex flex-col items-center">
-            <input
-              className="toggle"
-              type="checkbox"
-              id="art"
-              name="tags"
-              value="art"
-              ref={artRef}
-            />
-            <label htmlFor="art">Art</label>
-          </div>
-          <div className="flex flex-col items-center">
-            <input
-              className="toggle"
-              type="checkbox"
-              id="science"
-              name="tags"
-              value="science"
-              ref={scienceRef}
-            />
-            <label htmlFor="science">Science</label>
-          </div>
-        </div>
-        <label htmlFor="link">Image</label>
-        <input type="file" id="link" name="link" className="flex flex-col" />
-        <input type="submit" value="save" />
-      </form>
+          <label
+            className="text-center text-primary font-extrabold p-4 text-xl"
+            htmlFor="link"
+          >
+            Image
+          </label>
+          <input
+            className="file-input file-input-bordered file-input-success w-full max-w-xs"
+            type="file"
+            id="link"
+            name="link"
+          />
+          <input type="submit" value="save" className="btn btn-primary m-8" />
+        </form>
+      </div>
     </>
   );
 };

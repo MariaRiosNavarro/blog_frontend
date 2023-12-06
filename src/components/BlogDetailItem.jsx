@@ -65,6 +65,9 @@ const BlogDetailItem = () => {
       });
       const resJson = await response.json();
       setMessageDelete(resJson.message);
+      setTimeout(() => {
+        setMessageDelete(null);
+      }, 15000);
     } catch (error) {
       console.error("Failed to delete article:", error.message);
     }
@@ -82,12 +85,12 @@ const BlogDetailItem = () => {
           <Link to="/blog" className="card-actions justify-start p-4">
             <button className="btn btn-accent">Back</button>
           </Link>
-          <p className="px-8 py-4  rounded-xl  bg-success text-4xl">
+          <p className="px-8 py-4  rounded-xl  bg-success text-4xl text-black">
             {messageDelete}
           </p>
         </div>
       ) : (
-        <article className="card w-[95%] max-w-[700px] max-h-[60%] glass border-primary m-8">
+        <article className="card w-[95%] max-w-[700px]  glass border-primary m-8">
           <Link to="/blog" className="card-actions justify-start p-4">
             <button className="btn btn-accent">Back</button>
           </Link>
@@ -98,7 +101,7 @@ const BlogDetailItem = () => {
               alt={article.title}
             />
           </figure>
-          <div className="card-body flex-grow-0 h-auto relative ">
+          <div className="card-body flex-grow-0 max-h-[400px] relative ">
             <h2
               ref={titleRef}
               contentEditable={edit}
@@ -150,7 +153,7 @@ const BlogDetailItem = () => {
               </button>
             </div>
             {messageEdit && (
-              <p className="px-8 py-4  rounded-xl  bg-success text-4xl">
+              <p className=" mt-2 p-4  rounded-xl  bg-success text-black text-xl">
                 {messageEdit}
               </p>
             )}
