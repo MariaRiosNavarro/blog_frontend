@@ -4,15 +4,15 @@ import { useState } from "react";
 const Header = () => {
   //   use theme from local storage if available or set cupcake theme
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "cupcake"
+    localStorage.getItem("theme") ? localStorage.getItem("lemonade") : "cupcake"
   );
 
   // update state on toggle
   const handleToggle = (e) => {
     if (e.target.checked) {
-      setTheme("night");
+      setTheme("sunset");
     } else {
-      setTheme("cupcake");
+      setTheme("lemonade");
     }
   };
 
@@ -33,7 +33,7 @@ const Header = () => {
         <input
           type="checkbox"
           onChange={handleToggle}
-          checked={theme === "cupcake" ? false : true}
+          checked={theme === "lemonade" ? false : true}
         />
 
         {/* sun icon */}

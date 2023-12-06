@@ -1,11 +1,12 @@
 import BlogList from "../components/BlogList";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { AppFetchProvider } from "../context/AppFetchProvider";
+import Header from "../components/Header";
 
 const Blog = () => {
   return (
     <AppFetchProvider>
-      <h2>Blog</h2>
+      <Header />
       <BlogList />
     </AppFetchProvider>
   );

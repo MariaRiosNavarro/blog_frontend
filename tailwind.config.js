@@ -2,10 +2,14 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   daisyui: {
-    themes: ["cupcake", "night", "retro"],
+    themes: ["lemonade", "sunset", "autumn"],
   },
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        parallax: 'url("../public/books.jpg")',
+      },
+    },
   },
   plugins: [require("daisyui")],
 };
