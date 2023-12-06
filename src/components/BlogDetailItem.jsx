@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useFetchContext } from "../context/AppFetchProvider";
@@ -7,10 +7,19 @@ import { useFetchContext } from "../context/AppFetchProvider";
 const BlogDetailItem = () => {
   const [favorite, setFavorite] = useState(false);
   const [message, setMessage] = useState(null);
+  const [edit, setEdit] = useState(false);
   // const [favorite, setFavorite] = useState(false);
+
+  //edit
+  const titleRef = useRef();
+  const descriptionRef = useRef();
+
+  //from AppFetchProvider
 
   const { blogs, setRefresh } = useFetchContext();
   const { id } = useParams();
+
+  //find the article from the PROVIDER
 
   const article = blogs.find((blog) => blog.id === id);
 
@@ -21,6 +30,18 @@ const BlogDetailItem = () => {
 
   const handleFavorite = () => {
     setFavorite((prev) => !prev);
+  };
+
+  const saveBlog = () => {
+    const form = new FormData();
+    form.append("id", id);
+    form.append("title", titleRef.current.innerText);
+    form.append("description", descriptionRef.current.innerText);
+
+    fetch("http://localhost:9992/api/articles", {
+      method: "PUT",
+      body: form,
+    });
   };
 
   const deleteBlog = async () => {
@@ -41,7 +62,7 @@ const BlogDetailItem = () => {
 
   const editBlog = () => {
     let id = article.id;
-    console.log(id);
+    setEdit((prev) => !prev);
   };
 
   return (
@@ -68,8 +89,12 @@ const BlogDetailItem = () => {
             />
           </figure>
           <div className="card-body flex-grow-0 h-auto relative ">
-            <h2 className="card-title">{article.title}</h2>
-            <p>{article.description}</p>
+            <h2 ref={titleRef} contentEditable={edit} className="card-title">
+              {article.title}
+            </h2>
+            <p ref={descriptionRef} contentEditable={edit}>
+              {article.description}
+            </p>
             <div>
               {article.tags.map((tag) => (
                 <span
@@ -87,9 +112,16 @@ const BlogDetailItem = () => {
               {favorite ? "★" : "☆"}
             </div>
             <div className="mt-8 flex justify-center gap-8">
-              <button className="btn btn-primary" onClick={editBlog}>
-                Edit
-              </button>
+              {edit ? (
+                <button className="btn btn-primary" onClick={saveBlog}>
+                  Save
+                </button>
+              ) : (
+                <button className="btn btn-primary" onClick={editBlog}>
+                  Edit
+                </button>
+              )}
+
               <button className="btn btn-accent" onClick={deleteBlog}>
                 Delete
               </button>
