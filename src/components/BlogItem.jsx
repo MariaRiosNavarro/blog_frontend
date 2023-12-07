@@ -23,9 +23,9 @@ const BlogItem = ({ article }) => {
         }}
       ></figure> */}
 
-      <div className="card-body text-gray-100">
+      <div className="card-body  light:text-black">
         <h2 className="card-title">{article.title}</h2>
-        <p className="line-clamp-5">{article.description}</p>
+        <p className="line-clamp-5 ">{article.description}</p>
         <div>
           {article.tags.map((tag) => (
             <span
