@@ -6,7 +6,7 @@
 
 All CRUD basic operations of persistent storage works with the Server.
 
-Comming soon only 'PATCH', (Favorites Update, maybe the update of the badgets & update of images)
+Comming soon only 'PATCH', (Favorites Update, maybe the update of the badgets & update of images) and validation
 
 # Light & Dark
 

@@ -132,7 +132,7 @@ const BlogDetailItem = () => {
               ))}
             </div>
             <div
-              className="absolute right-10 text-3xl"
+              className="absolute right-10 text-3xl cursor-pointer"
               onClick={handleFavorite}
             >
               {favorite ? "★" : "☆"}

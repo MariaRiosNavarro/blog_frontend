@@ -1,5 +1,6 @@
 import { useFetchContext } from "../context/AppFetchProvider";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const BlogForm = () => {
   const { setRefresh } = useFetchContext();
@@ -170,7 +171,12 @@ const BlogForm = () => {
             id="link"
             name="link"
           />
-          <input type="submit" value="save" className="btn btn-primary m-8" />
+          <div className="flex justify-center items-center">
+            <input type="submit" value="save" className="btn btn-primary m-8" />
+            <Link to="/blog">
+              <button className="btn btn-secondary m-8">Blog</button>
+            </Link>
+          </div>
         </form>
       </div>
     </>
